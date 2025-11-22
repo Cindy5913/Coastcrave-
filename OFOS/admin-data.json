@@ -1,0 +1,153 @@
+{
+  "menuItems": [
+    {
+      "id": 1,
+      "name": "Grilled Tuna Steak",
+      "description": "Fresh Spanish mackerel grilled to perfection with lemon butter sauce and local herbs.",
+      "price": 450,
+      "category": "fish",
+      "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80",
+      "rating": 4.5,
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Garlic Butter Shrimp",
+      "description": "Succulent shrimp sautéed in a spicy chili garlic sauce with local peppers.",
+      "price": 520,
+      "category": "crustaceans",
+      "image": "https://images.unsplash.com/photo-1563379091339-03246963d96f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "rating": 5,
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Baked Scallops",
+      "description": "Fresh mussels baked with garlic, cheese, and breadcrumbs in the shell.",
+      "price": 380,
+      "category": "shellfish",
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "rating": 4,
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "name": "Crispy Calamares",
+      "description": "Classic Filipino sour soup with fresh shrimp, vegetables, and tamarind broth.",
+      "price": 420,
+      "category": "shellfish",
+      "image": "https://images.unsplash.com/photo-1587339940152-32e66f7956fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "rating": 4.5,
+      "featured": true,
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "name": "Seafood Paella",
+      "description": "Traditional Spanish rice dish with mixed seafood, saffron, and vegetables.",
+      "price": 650,
+      "category": "rice",
+      "image": "https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "rating": 4.8,
+      "featured": false,
+      "status": "inactive"
+    },
+    {
+      "id": 6,
+      "name": "Grilled Salmon",
+      "description": "Atlantic salmon fillet grilled with herbs and served with lemon butter sauce.",
+      "price": 580,
+      "category": "fish",
+      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80",
+      "rating": 4.7,
+      "featured": false,
+      "status": "inactive"
+    },
+    {
+      "id": 7,
+      "name": "Clam Chowder",
+      "description": "Creamy soup with fresh clams, potatoes, and vegetables in a rich broth.",
+      "price": 320,
+      "category": "soups",
+      "image": "https://images.unsplash.com/photo-1543339302-43d0e4c0d1c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "rating": 4.2,
+      "featured": false,
+      "status": "inactive"
+    },
+    {
+      "id": 8,
+      "name": "Lobster Thermidor",
+      "description": "Lobster meat cooked in a rich cream sauce with brandy and cheese, served in the shell.",
+      "price": 1200,
+      "category": "crustaceans",
+      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80",
+      "rating": 4.9,
+      "featured": false,
+      "status": "inactive"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@coastcrave.com",
+      "password": "admin123",
+      "role": "admin",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Staff User",
+      "email": "staff@coastcrave.com",
+      "password": "staff123",
+      "role": "staff",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Customer User",
+      "email": "customer@coastcrave.com",
+      "password": "customer123",
+      "role": "customer",
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "name": "Juan Dela Cruz",
+      "email": "juan@example.com",
+      "password": "password123",
+      "role": "customer",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "name": "Maria Santos",
+      "email": "maria@example.com",
+      "password": "password123",
+      "role": "customer",
+      "status": "inactive"
+    }
+  ],
+  "analytics": {
+    "totalOrders": 127,
+    "revenue": 42580,
+    "customers": 89,
+    "menuItems": 24,
+    "topItems": [
+      { "name": "Grilled Tuna", "orders": 65 },
+      { "name": "Garlic Shrimp", "orders": 59 },
+      { "name": "Baked Scallops", "orders": 80 },
+      { "name": "Crispy Calamares", "orders": 81 },
+      { "name": "Seafood Paella", "orders": 56 }
+    ],
+    "orderStatus": [
+      { "status": "Pending", "count": 12 },
+      { "status": "Preparing", "count": 19 },
+      { "status": "Ready", "count": 7 },
+      { "status": "Completed", "count": 89 }
+    ]
+  }
+}

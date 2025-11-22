@@ -1,0 +1,3900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoastCrave | Premium Seafood Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Font Family */
+        body {
+            font-family: 'Poppins', 'Open Sans', sans-serif;
+        }
+        
+        /* All existing CSS styles remain exactly the same */
+        :root {
+            --deep-ocean: #0a1128;
+            --ocean-blue: #1d4e89;
+            --sea-teal: #00b4d8;
+            --seafoam: #90e0ef;
+            --coral: #ff6b6b;
+            --gold: #ffd166;
+            --sand: #f4e9cd;
+            --light: #caf0f8;
+            --dark: #03071e;
+        }
+        
+        /* Consistent Header Title Sizes - INCLUDING MENU */
+        .section-title {
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            margin-bottom: 3rem !important;
+            color: #00b4d8 !important;
+            position: relative !important;
+            font-family: 'Poppins', 'Open Sans', sans-serif !important;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #00b4d8;
+            border-radius: 2px;
+        }
+
+        /* Apply to all section headers - INCLUDING MENU */
+        #features h2,
+        #menu h2,
+        #about h2,
+        #reviews h2,
+        #contact h2 {
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            margin-bottom: 3rem !important;
+            color: #00b4d8 !important;
+            position: relative !important;
+            font-family: 'Poppins', 'Open Sans', sans-serif !important;
+        }
+
+        #features h2:after,
+        #menu h2:after,
+        #about h2:after,
+        #reviews h2:after,
+        #contact h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #00b4d8;
+            border-radius: 2px;
+        }
+
+        /* Make Get In Touch subtexts smaller */
+        .contact-info-card p {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+        }
+
+        .contact-info-card .text-sm {
+            font-size: 0.8rem !important;
+        }
+
+        /* Specific styling for different text elements */
+        .contact-info-card h4 {
+            font-size: 1.1rem !important;
+            margin-bottom: 0.8rem !important;
+        }
+
+        .contact-info-card .text-gray-300 {
+            font-size: 0.9rem !important;
+            margin-bottom: 0.3rem !important;
+        }
+
+        .contact-info-card .text-gray-400 {
+            font-size: 0.8rem !important;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .contact-info-card p {
+                font-size: 0.85rem !important;
+            }
+            
+            .contact-info-card .text-sm {
+                font-size: 0.75rem !important;
+            }
+            
+            .contact-info-card h4 {
+                font-size: 1rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            
+            .contact-info-card .text-gray-300 {
+                font-size: 0.85rem !important;
+            }
+            
+            .contact-info-card .text-gray-400 {
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info-card p {
+                font-size: 0.8rem !important;
+            }
+            
+            .contact-info-card .text-sm {
+                font-size: 0.7rem !important;
+            }
+            
+            .contact-info-card h4 {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .contact-info-card .text-gray-300 {
+                font-size: 0.8rem !important;
+            }
+            
+            .contact-info-card .text-gray-400 {
+                font-size: 0.7rem !important;
+            }
+        }
+
+        /* Get In Touch and Image Gallery headers */
+        #contact h3,
+        .about-images-section h3 {
+            font-size: 2.2rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin-bottom: 2rem !important;
+            color: #00b4d8 !important;
+            position: relative !important;
+            font-family: 'Poppins', 'Open Sans', sans-serif !important;
+        }
+
+        #contact h3:after,
+        .about-images-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #00b4d8;
+            border-radius: 2px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .section-title,
+            #features h2,
+            #menu h2,
+            #about h2,
+            #reviews h2,
+            #contact h2 {
+                font-size: 2rem !important;
+                margin-bottom: 2.5rem !important;
+            }
+            
+            #contact h3,
+            .about-images-section h3 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .section-title:after,
+            #features h2:after,
+            #menu h2:after,
+            #about h2:after,
+            #reviews h2:after,
+            #contact h2:after {
+                width: 100px;
+                bottom: -12px;
+            }
+            
+            #contact h3:after,
+            .about-images-section h3:after {
+                width: 80px;
+                bottom: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title,
+            #features h2,
+            #menu h2,
+            #about h2,
+            #reviews h2,
+            #contact h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            #contact h3,
+            .about-images-section h3 {
+                font-size: 1.6rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .section-title:after,
+            #features h2:after,
+            #menu h2:after,
+            #about h2:after,
+            #reviews h2:after,
+            #contact h2:after {
+                width: 80px;
+                bottom: -10px;
+                height: 3px;
+            }
+            
+            #contact h3:after,
+            .about-images-section h3:after {
+                width: 70px;
+                bottom: -8px;
+                height: 2px;
+            }
+        }
+        
+        /* Footer - Exact same size as header */
+        footer {
+            padding: 1rem 0 !important;
+            min-height: 80px !important;
+            display: flex;
+            align-items: center;
+        }
+
+        footer .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        footer .border-t {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            border: none !important;
+        }
+
+        /* Remove all extra spacing and borders */
+        footer .border-t.border-gray-700 {
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Make footer text match header text size */
+        footer p {
+            font-size: 1rem !important;
+            margin-bottom: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Match header's border styling */
+        footer.border-t {
+            border-top: 1px solid #1e40af !important; /* Same as header's border-blue-800 */
+        }
+
+        /* Exact header matching */
+        footer.bg-gray-900 {
+            height: 88px !important; /* Match header height including padding */
+            display: flex;
+            align-items: center;
+        }
+
+        /* Mobile responsiveness - match header exactly */
+        @media (max-width: 768px) {
+            footer {
+                padding: 0.75rem 0 !important;
+                min-height: 72px !important;
+            }
+            
+            footer.bg-gray-900 {
+                height: 72px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 0.5rem 0 !important;
+                min-height: 64px !important;
+            }
+            
+            footer.bg-gray-900 {
+                height: 64px !important;
+            }
+            
+            footer p {
+                font-size: 0.9rem !important;
+            }
+        }
+        
+        /* Add these styles to your existing CSS */
+
+        /* Apply shimmer effect to Contact section containers */
+        .contact-map-container, .travel-guide-card, .contact-info-card,
+        .social-media-card, .travel-tip, .contact-details {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-map-container::before, .travel-guide-card::before, 
+        .contact-info-card::before, .social-media-card::before,
+        .travel-tip::before, .contact-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .contact-map-container:hover::before, .travel-guide-card:hover::before, 
+        .contact-info-card:hover::before, .social-media-card:hover::before,
+        .travel-tip:hover::before, .contact-details:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Ensure content stays above the shimmer effect */
+        .contact-map-container > *, .travel-guide-card > *, 
+        .contact-info-card > *, .social-media-card > *,
+        .travel-tip > *, .contact-details > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* NEW: SHIMMER/SWEEP EFFECT FOR ALL CONTAINERS */
+        .shimmer-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shimmer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .shimmer-container:hover::before {
+            transform: translateX(100%);
+        }
+        
+        /* Apply shimmer effect to all containers */
+        .feature-card, .menu-item, .review-card, .about-image-card, 
+        .about-container, .contact-info-item, .travel-tip, 
+        .notification, .modal-content, .dropdown-content,
+        .gallery-item, .stat-card, .form-group,
+        .cart-item, .quantity-controls, .filter-btn,
+        .btn, .dropdown-btn, .user-type {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before, .menu-item::before, .review-card::before, 
+        .about-image-card::before, .about-container::before, 
+        .contact-info-item::before, .travel-tip::before, 
+        .notification::before, .modal-content::before, 
+        .dropdown-content::before, .gallery-item::before,
+        .stat-card::before, .form-group::before,
+        .cart-item::before, .quantity-controls::before,
+        .btn::before, .dropdown-btn::before, .user-type::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .feature-card:hover::before, .menu-item:hover::before, .review-card:hover::before, 
+        .about-image-card:hover::before, .about-container:hover::before, 
+        .contact-info-item:hover::before, .travel-tip:hover::before, 
+        .notification:hover::before, .modal-content:hover::before, 
+        .dropdown-content:hover::before, .gallery-item:hover::before,
+        .stat-card:hover::before, .form-group:hover::before,
+        .cart-item:hover::before, .quantity-controls:hover::before,
+        .btn:hover::before, .dropdown-btn:hover::before, .user-type:hover::before {
+            transform: translateX(100%);
+        }
+        
+        /* Ensure content stays above the shimmer effect */
+        .feature-card > *, .menu-item > *, .review-card > *, 
+        .about-image-card > *, .about-container > *, 
+        .contact-info-item > *, .travel-tip > *, 
+        .notification > *, .modal-content > *, 
+        .dropdown-content > *, .gallery-item > *,
+        .stat-card > *, .form-group > *,
+        .cart-item > *, .quantity-controls > *,
+        .btn > *, .dropdown-btn > *, .user-type > * {
+            position: relative;
+            z-index: 2;
+        }
+
+       /* Add this to your existing CSS */
+        .menu-title h3 {
+            font-size: 1rem !important; /* Smaller product title */
+        }
+
+        .add-to-cart {
+            font-size: 0.85rem !important; /* Smaller button text */
+            padding: 8px 12px !important; /* Adjust padding to match smaller text */
+        }
+
+        .menu-price {
+            font-size: 0.9rem !important; /* Optional: make price slightly smaller too */
+        }
+
+        /* For mobile responsiveness */
+        @media (max-width: 768px) {
+            .menu-title h3 {
+                font-size: 0.9rem !important; /* Even smaller on mobile */
+            }
+            
+            .add-to-cart {
+                font-size: 0.8rem !important;
+                padding: 6px 10px !important;
+            }
+        } 
+        
+      /* Image Gallery Styles - Responsive for All Devices */
+        .image-gallery {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #1d4e89 #0a1128;
+            min-width: 100%;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .image-gallery::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .image-gallery::-webkit-scrollbar-track {
+            background: #0a1128;
+            border-radius: 4px;
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb {
+            background: #1d4e89;
+            border-radius: 4px;
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb:hover {
+            background: #00b4d8;
+        }
+
+        /* Desktop - Large Images */
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 400px; /* Large width for desktop */
+            min-width: 380px; /* Large minimum width */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 300px; /* Large height for desktop */
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* UPDATED: Gallery caption now extends full width */
+        .gallery-caption {
+            padding: 1.2rem;
+            background: rgba(29, 78, 137, 0.4);
+            color: #caf0f8;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            flex-grow: 1; /* Makes caption take remaining space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Tablet - Medium Size */
+        @media (max-width: 1024px) {
+            .gallery-item {
+                width: 350px;
+                min-width: 320px;
+            }
+            
+            .gallery-img {
+                height: 250px;
+            }
+        }
+
+        /* Mobile - Exact Size */
+        @media (max-width: 768px) {
+            .image-gallery {
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            
+            .gallery-item {
+                width: 300px; /* Exact size for mobile */
+                min-width: 300px; /* Fixed exact width */
+            }
+            
+            .gallery-img {
+                height: 200px; /* Exact height for mobile */
+            }
+            
+            .gallery-caption {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Small Mobile - Exact Size */
+        @media (max-width: 480px) {
+            .image-gallery {
+                gap: 0.8rem;
+                padding: 0.8rem 0;
+            }
+            
+            .gallery-item {
+                width: 280px; /* Exact size for small mobile */
+                min-width: 280px; /* Fixed exact width */
+            }
+            
+            .gallery-img {
+                height: 180px; /* Exact height for small mobile */
+            }
+            
+            .gallery-caption {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Scroll hint animation */
+        .scroll-hint {
+            text-align: center;
+            color: #90e0ef;
+            margin-bottom: 0.5rem;
+            animation: bounce 2s infinite;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(0);
+            }
+            40% {
+                transform: translateX(10px);
+            }
+            60% {
+                transform: translateX(5px);
+            }
+        }
+        
+        /* All existing CSS styles remain exactly the same */
+        .menu-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 8px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .top-pick-badge {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.95), rgba(255, 82, 82, 0.95));
+            color: white;
+            border-color: rgba(255, 107, 107, 0.9);
+            box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .fresh-badge {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.95), rgba(144, 224, 239, 0.95));
+            color: white;
+            border-color: rgba(0, 180, 216, 0.9);
+            box-shadow: 0 3px 10px rgba(0, 180, 216, 0.3);
+        }
+        
+        /* All existing CSS styles remain exactly the same */
+        .menu-img-container {
+            position: relative;
+        }
+
+        /* All existing CSS styles remain exactly the same */
+        .nav-icon-item {
+            position: relative;
+        }
+
+        .nav-icon-item a {
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-icon-item a:hover {
+            background-color: rgba(0, 180, 216, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-tooltip {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--ocean-blue);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-tooltip::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent var(--ocean-blue) transparent;
+        }
+
+        .nav-icon-item:hover .nav-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--sea-teal);
+            border-radius: 2px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sea-teal);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--sea-teal);
+        }
+
+        /* UPDATED: Centered Notification Styles */
+.notification-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    z-index: 10000; /* Increased z-index */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 90%;
+    width: 400px;
+}
+
+.notification-container.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.notification {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid #334155;
+    position: relative; /* Added for proper z-index context */
+}
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #334155;
+    position: relative; /* Added for proper z-index context */
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.notification-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #f8fafc;
+}
+
+.notification-body {
+    padding: 20px;
+}
+
+.notification-message {
+    margin-bottom: 16px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.notification-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.notification-btn-primary {
+    background: #00b4d8;
+    color: #0f172a;
+}
+
+.notification-btn-primary:hover {
+    background: #0096c7;
+}
+
+.notification-btn-secondary {
+    background: transparent;
+    color: #00b4d8;
+    border: 1px solid #00b4d8;
+}
+
+.notification-btn-secondary:hover {
+    background: rgba(0, 180, 216, 0.1);
+}
+
+/* FIXED: Notification close button with proper z-index */
+.notification-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10001; /* Higher z-index than container */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.notification-close:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+        /* NEW: Guest-specific styling */
+        .guest-indicator {
+            background: linear-gradient(135deg, rgba(255, 209, 102, 0.95), rgba(255, 193, 7, 0.95));
+            color: #0f172a;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        /* Password field with toggle */
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #00b4d8;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #1e293b;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+        
+        .dropdown-content a, .dropdown-content .user-info {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content .user-info {
+            background-color: #334155;
+            border-bottom: 1px solid #475569;
+            cursor: default;
+        }
+        
+        .dropdown-content .user-info:hover {
+            background-color: #334155;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #334155;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-btn {
+            background-color: transparent;
+            border: 2px solid #22d3ee;
+            color: #22d3ee;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .dropdown-btn:hover {
+            background-color: #22d3ee;
+            color: #0f172a;
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        /* Enhanced Form Styles */
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(29, 78, 137, 0.3);
+            border: 1px solid #1d4e89;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00b4d8;
+        }
+        
+        .user-type-selector {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #1d4e89;
+        }
+
+        .user-type {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: rgba(29, 78, 137, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .user-type.active {
+            background: #00b4d8;
+            color: #0a1128;
+            font-weight: bold;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #0a1128;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1d4e89;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #caf0f8;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #ff6b6b;
+        }
+
+        .modal h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #00b4d8;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #90e0ef;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .form-footer a {
+            color: #00b4d8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .form-footer a:hover {
+            color: #90e0ef;
+        }
+        
+        /* Cart Styles */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #1d4e89;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background: #00b4d8;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a1128;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1d4e89;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00b4d8;
+        }
+        
+        .filter-btn.active {
+            background: #00b4d8;
+            color: #0a1128;
+        }
+        
+        /* Logo styles */
+        .logo {
+            width: 80px;
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        /* UPDATED: About Section Enhancements - SEPARATED IMAGES AND TEXT */
+        .about-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+        
+        .about-text {
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* NEW: Separated Image Section */
+        .about-images-section {
+            margin-top: 3rem;
+        }
+        
+        .about-images-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .about-image-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .about-image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .about-image-caption {
+            padding: 1.5rem;
+            background: rgba(29, 78, 137, 0.3);
+            color: #caf0f8;
+            text-align: center;
+        }
+        
+        .about-image-caption h4 {
+            color: #00b4d8;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .image-gallery-container {
+            margin-top: 2rem;
+        }
+        
+        /* Reviews Section Styles */
+        .reviews-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .review-card {
+            background: rgba(29, 78, 137, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #1d4e89;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: #00b4d8;
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid #00b4d8;
+        }
+        
+        .review-name {
+            font-weight: bold;
+            color: #00b4d8;
+        }
+        
+        .review-date {
+            color: #90e0ef;
+            font-size: 0.8rem;
+        }
+        
+        .review-rating {
+            color: #ffd166;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-text {
+            color: #caf0f8;
+            font-style: italic;
+        }
+        
+        /* Contact Section Styles */
+        .contact-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-map {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            color: #00b4d8;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            min-width: 20px;
+        }
+        
+        .contact-details h4 {
+            color: #00b4d8;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        
+        .contact-details p {
+            color: #caf0f8;
+            margin-bottom: 0.2rem;
+        }
+        
+        /* Hero Section with Background Image */
+        .hero {
+            background: linear-gradient(rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.7)), 
+                        url('Gemini_Generated_Image_qydh33qydh33qydh.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        /* NEW: Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* NEW: Enhanced Hover Effects */
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: width 0.6s ease, height 0.6s ease, top 0.6s ease, left 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .feature-card, .menu-item, .review-card, .stat-card, .about-image-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .feature-card:hover, .menu-item:hover, .review-card:hover, .stat-card:hover, .about-image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    color: #00b4d8;
+    transform: scale(1.1);
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%; /* Reduced from 85% to 75% */
+    max-width: 280px; /* Reduced from 320px to 280px */
+    height: 100vh;
+    background: linear-gradient(135deg, #0a1128, #1d4e89);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+.mobile-nav.active {
+    display: block;
+    right: 0;
+}
+        
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            backdrop-filter: blur(5px);
+        }
+        
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mobile-nav li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            padding: 18px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mobile-nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.2), transparent);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(0, 180, 216, 0.1);
+            padding-left: 30px;
+        }
+        
+        .mobile-nav a:hover::before {
+            left: 100%;
+        }
+        
+        .mobile-nav i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #00b4d8;
+        }
+        
+        .mobile-nav .nav-text {
+            font-size: 1.1rem;
+        }
+        
+        .mobile-nav-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 25px;
+            background: rgba(10, 17, 40, 0.9);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .mobile-nav-logo {
+            display: flex;
+            align-items: center;
+            color: #00b4d8;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .mobile-nav-logo img {
+            width: 40px;
+            height: 35px;
+            margin-right: 10px;
+        }
+        
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-close-btn:hover {
+            color: #ff6b6b;
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav-footer {
+            padding: 20px 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            text-align: center;
+            color: #90e0ef;
+            font-size: 0.9rem;
+        }
+        
+        /* Animation for mobile nav items */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .mobile-nav.active li {
+            animation: slideInRight 0.4s ease forwards;
+        }
+        
+        .mobile-nav.active li:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-nav.active li:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-nav.active li:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-nav.active li:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-nav.active li:nth-child(5) { animation-delay: 0.3s; }
+        .mobile-nav.active li:nth-child(6) { animation-delay: 0.35s; }
+        
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .dropdown-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .user-actions {
+                gap: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            
+            .section-title:after {
+                width: 80px;
+            }
+            
+            .contact-map {
+                height: 250px;
+            }
+            
+            /* NEW: Responsive adjustments for about images */
+            .about-images-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .about-image {
+                height: 250px;
+            }
+            
+            /* Mobile navigation adjustments */
+            .nav-tooltip {
+                display: none; /* Hide tooltips on mobile */
+            }
+            
+            .nav-icon-item a {
+                padding: 6px 10px;
+            }
+            
+            /* FIXED: Mobile header layout */
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .user-actions {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 50px;
+            }
+            
+            .header-logo {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-nav,
+            .mobile-nav-overlay {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .feature-card, .menu-item {
+                padding: 1.5rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .review-card {
+                padding: 1rem;
+            }
+            
+            .contact-map {
+                height: 200px;
+            }
+            
+            /* NEW: Further responsive adjustments for about images */
+            .about-image {
+                height: 200px;
+            }
+            
+            .about-image-caption {
+                padding: 1rem;
+            }
+            
+            /* FIXED: Further mobile header adjustments */
+            .header-logo {
+                font-size: 1.3rem;
+            }
+            
+            .dropdown-btn span {
+                display: none;
+            }
+            
+            .dropdown-btn {
+                padding: 6px 10px;
+            }
+            
+            .user-actions {
+                gap: 8px;
+            }
+            
+            /* Mobile nav adjustments for small screens */
+            .mobile-nav {
+                width: 40%;
+            }
+            
+            .mobile-nav a {
+        padding: 16px 20px;
+    }
+    
+    .mobile-nav-header {
+        padding: 15px 20px;
+    }
+}
+
+       /* NEW: Menu Notice Styles - UPDATED */
+.menu-notice-container {
+    margin: 1.5rem auto 2rem;
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Same as About section container */
+    display: none; /* Hidden by default */
+    padding: 0 1rem; /* Same padding as About section */
+    box-sizing: border-box;
+}
+
+.menu-notice {
+    background: linear-gradient(135deg, rgba(0, 180, 216, 0.15), rgba(144, 224, 239, 0.1)); /* Changed to sea-teal colors */
+    border: 1px solid rgba(0, 180, 216, 0.4); /* Sea teal border */
+    border-radius: 12px; /* Slightly more rounded */
+    padding: 1.2rem 2rem; /* Increased horizontal padding */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    min-height: 70px; /* Ensure consistent height */
+    width: 100%; /* Full width of its container */
+    box-sizing: border-box;
+}
+
+.menu-notice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px; /* Slightly thicker accent line */
+    height: 100%;
+    background: linear-gradient(to bottom, #00b4d8, #90e0ef); /* Sea teal gradient */
+    border-radius: 2px 0 0 2px;
+}
+
+.menu-notice i {
+    color: #00b4d8; /* Sea teal color */
+    font-size: 1.3rem; /* Slightly larger icon */
+    flex-shrink: 0;
+    margin-top: 0; /* Remove top margin for better alignment */
+}
+
+.menu-notice p {
+    color: #90e0ef; /* Seafoam color for better readability */
+    margin: 0;
+    font-size: 0.95rem; /* Slightly larger text */
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 500; /* Slightly bolder */
+    flex: 1; /* Take remaining space */
+}
+
+.menu-notice.show {
+    display: flex;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* NEW: Add shimmer effect to menu notice */
+.menu-notice {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-notice::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 180, 216, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.menu-notice:hover::after {
+    transform: translateX(100%);
+}
+
+/* Ensure content stays above shimmer effect */
+.menu-notice > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile Responsiveness - UPDATED */
+@media (max-width: 768px) {
+    .menu-notice-container {
+        margin: 1rem auto 1.5rem;
+        padding: 0 1rem; /* Consistent padding */
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    .menu-notice {
+        padding: 1rem 1.5rem; /* Adjusted padding for mobile */
+        flex-direction: row; /* Keep horizontal layout on mobile */
+        text-align: center;
+        min-height: auto; /* Allow natural height on mobile */
+    }
+    
+    .menu-notice i {
+        align-self: flex-start; /* Align icon to top on mobile */
+        font-size: 1.1rem; /* Slightly smaller icon on mobile */
+        margin-top: 2px; /* Small top margin for better alignment */
+    }
+    
+    .menu-notice p {
+        font-size: 0.9rem; /* Slightly smaller text on mobile */
+        text-align: left; /* Keep left aligned */
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+    .menu-notice {
+        padding: 1rem 1.2rem;
+        gap: 12px;
+    }
+    
+    .menu-notice p {
+        font-size: 0.85rem;
+    }
+    
+    .menu-notice i {
+        font-size: 1rem;
+    }
+}
+        
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation Bar -->
+    <header class="fixed w-full top-0 z-50 bg-gray-900 bg-opacity-95 shadow-lg border-b border-blue-800">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-4">
+                <a href="#" class="flex items-center text-2xl font-bold text-cyan-400 header-logo">
+                    <img src="Gemini_Generated_Image_642upx642upx642u__1_-removebg-preview.png" alt="CoastCrave Logo" class="logo mr-2">CoastCrave
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="desktop-nav md:flex space-x-6 items-center nav-links">
+                    <li class="nav-icon-item">
+                        <a href="#" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-home text-xl"></i>
+                            <span class="nav-tooltip">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-icon-item">
+                        <a href="#menu" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-utensils text-xl"></i>
+                            <span class="nav-tooltip">Menu</span>
+                        </a>
+                    </li>
+                    <li class="nav-icon-item">
+                        <a href="#features" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-concierge-bell text-xl"></i>
+                            <span class="nav-tooltip">Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-icon-item">
+                        <a href="#about" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-info-circle text-xl"></i>
+                            <span class="nav-tooltip">About</span>
+                        </a>
+                    </li>
+                    <li class="nav-icon-item">
+                        <a href="#reviews" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-star text-xl"></i>
+                            <span class="nav-tooltip">Reviews</span>
+                        </a>
+                    </li>
+                    <li class="nav-icon-item">
+                        <a href="#contact" class="text-white font-semibold hover:text-cyan-300 transition relative">
+                            <i class="fas fa-address-book text-xl"></i>
+                            <span class="nav-tooltip">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="user-actions">
+                    <!-- Cart Icon -->
+                    <div class="relative cursor-pointer" id="cartIcon">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">0</span>
+                    </div>
+                    
+                    <!-- Dropdown for Login/Register/Guest -->
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a href="#" id="loginBtnDropdown">Login</a>
+                            <a href="#" id="registerBtnDropdown">Register</a>
+                            <a href="#" id="guestBtn">Continue as Guest</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NEW: Improved Mobile Navigation Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+           
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fas fa-home"></i>
+                    Home
+                   
+                </a>
+            </li>
+            <li>
+                <a href="#menu">
+                    <i class="fas fa-utensils"></i>
+                    Menu
+                </a>
+            </li>
+            <li>
+                <a href="#features">
+                    <i class="fas fa-concierge-bell"></i>
+                   Services
+                </a>
+            </li>
+            <li>
+                <a href="#about">
+                    <i class="fas fa-info-circle"></i>
+                   About
+                </a>
+            </li>
+            <li>
+                <a href="#reviews">
+                    <i class="fas fa-star"></i>
+                    Reviews
+                </a>
+            </li>
+            <li>
+                <a href="#contact">
+                    <i class="fas fa-address-book"></i>
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- UPDATED: Centered Notifications -->
+
+    <!-- Login Required Notification -->
+    <div id="loginNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeLoginNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-red-500">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Please Log In First</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    You need to log in to add items to your cart. Don't have an account yet?
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-secondary" id="notificationRegister">Register</button>
+                    <button class="notification-btn notification-btn-primary" id="notificationLogin">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Review Login Required Notification -->
+    <div id="reviewLoginNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeReviewLoginNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-red-500">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Login Required for Reviews</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    You need to log in to add your review. Don't have an account yet?
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-secondary" id="reviewNotificationRegister">Register</button>
+                    <button class="notification-btn notification-btn-primary" id="reviewNotificationLogin">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Guest Restriction Notification -->
+    <div id="guestRestrictionNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeGuestRestrictionNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-yellow-500">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Guest Account Restrictions</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    Guest accounts cannot place orders or submit reviews. Please register for a full account to access all features.
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-secondary" id="guestRestrictionRegister">Register</button>
+                    <button class="notification-btn notification-btn-primary" id="guestRestrictionLogin">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPDATED: Logout Confirmation Notification - Now matches "Please Log In First" style -->
+    <div id="logoutConfirmation" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeLogoutConfirmation">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-red-500">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Confirm Logout</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    Are you sure you want to log out? You'll need to log in again to access your account and place orders.
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-secondary" id="cancelLogout">Cancel</button>
+                    <button class="notification-btn notification-btn-primary" id="confirmLogout">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Success Notification -->
+    <div id="successNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeSuccessNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-green-500">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Successfully Registered!</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    Your account has been created successfully. You can now log in to your account.
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-primary" id="successNotificationLogin">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invalid Credentials Notification -->
+    <div id="invalidCredentialsNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeInvalidCredentials">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-red-500">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Invalid Credentials</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    The email or password you entered is incorrect. Please try again or register if you don't have an account.
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-secondary" id="invalidCredentialsRegister">Register</button>
+                    <button class="notification-btn notification-btn-primary" id="invalidCredentialsRetry">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Success Notification -->
+    <div id="reviewSuccessNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeReviewNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-green-500">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Review Submitted</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    Thank you for sharing your experience with CoastCrave!
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-primary" id="closeReviewSuccess">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Empty Notification -->
+    <div id="cartEmptyNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeCartEmptyNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-yellow-500">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="notification-title text-cyan-300">Your Cart is Empty</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message">
+                    Add some delicious seafood items to your cart first!
+                </div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-primary" id="closeCartEmpty">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- General Info Notification -->
+    <div id="infoNotification" class="notification-container">
+        <div class="notification">
+            <button class="notification-close" id="closeInfoNotification">&times;</button>
+            <div class="notification-header">
+                <div class="notification-icon text-cyan-400" id="infoNotificationIcon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-title text-cyan-300" id="infoNotificationTitle">Information</div>
+            </div>
+            <div class="notification-body">
+                <div class="notification-message" id="infoNotificationMessage">This is an information message.</div>
+                <div class="notification-actions">
+                    <button class="notification-btn notification-btn-primary" id="infoNotificationConfirm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero h-screen relative overflow-hidden flex items-center">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white fade-in">Catch the Taste, Order the Best!</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto fade-in">Freshly caught, perfectly cooked — enjoy a wide variety of seafood dishes, anytime, anywhere.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- UPDATED: Changed Order Now button color to complement system colors -->
+                <a href="#menu" class="btn bg-cyan-500 hover:bg-cyan-400 text-white px-6 py-3 rounded-full font-semibold transition transform hover:-translate-y-1 shadow-lg fade-in">Order Now</a>
+                <!-- UPDATED: Changed Explore Dishes to Explore and linked to contact section -->
+                <a href="#contact" class="btn bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-6 py-3 rounded-full font-semibold transition transform hover:-translate-y-1 fade-in">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-cyan-300 relative fade-in">Why Our Seafood Stands Out</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card bg-blue-900 bg-opacity-20 p-6 rounded-lg text-center shadow-lg border border-blue-700 transition duration-300 fade-in">
+                    <div class="feature-icon text-4xl text-cyan-400 mb-4">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3">Fresh Daily Catch</h3>
+                    <p class="text-gray-300">We source our seafood daily from local fishermen to ensure maximum freshness.</p>
+                </div>
+                <div class="feature-card bg-blue-900 bg-opacity-20 p-6 rounded-lg text-center shadow-lg border border-blue-700 transition duration-300 fade-in">
+                    <div class="feature-icon text-4xl text-cyan-400 mb-4">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3">Fast Delivery</h3>
+                    <p class="text-gray-300">Get your seafood delivered in 45 minutes or less, packed to preserve freshness.</p>
+                </div>
+                <div class="feature-card bg-blue-900 bg-opacity-20 p-6 rounded-lg text-center shadow-lg border border-blue-700 transition duration-300 fade-in">
+                    <div class="feature-icon text-4xl text-cyan-400 mb-4">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3">Sustainable Sourcing</h3>
+                    <p class="text-gray-300">We practice responsible fishing to protect our marine ecosystems.</p>
+                </div>
+                <div class="feature-card bg-blue-900 bg-opacity-20 p-6 rounded-lg text-center shadow-lg border border-blue-700 transition duration-300 fade-in">
+                    <div class="feature-icon text-4xl text-cyan-400 mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3">Expert Preparation</h3>
+                    <p class="text-gray-300">Our chefs prepare each dish with traditional and modern techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-cyan-300 relative fade-in">Our Seafood Selection</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900 active" data-category="all">All</button>
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900" data-category="fish">Fish</button>
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900" data-category="shellfish">Shellfish</button>
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900" data-category="soups">Soups & Stews</button>
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900" data-category="squids">Squids</button>
+                <button class="filter-btn px-4 py-2 bg-blue-800 bg-opacity-30 border border-cyan-400 rounded-full text-white font-semibold transition hover:bg-cyan-400 hover:text-gray-900" data-category="sauces">Sauces</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="menuItems">
+                <!-- Menu items will be loaded from JavaScript -->
+            </div>
+        </div>
+        <!-- NEW: Menu Notice -->
+            <div class="menu-notice-container" id="menuNotice">
+                <div class="menu-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Note: Prices and menu items may vary without prior notice. Menu updates and price changes by the admin will appear after you log in.</p>
+                </div>
+            </div>
+    </section>
+
+   <!-- UPDATED: About Section - SEPARATED IMAGES AND TEXT -->
+<section id="about" class="py-12 bg-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-8 text-cyan-300 relative fade-in">About Us</h2>
+        
+        <div class="about-container bg-blue-900 bg-opacity-20 rounded-lg border border-blue-700">
+            <div class="about-text p-6">
+                <p class="mb-3 text-gray-300 fade-in" style="text-align: justify; text-indent: 2em;">
+                    Welcome to CoastCrave, where every meal is a splash of happiness! Established in 2023, we aim to bring the taste of the ocean closer to you through fast, easy, and reliable online ordering. We believe everyone deserves freshly prepared seafood anytime, anywhere, made with care, passion, and a promise of quality. Our mission is to be the leading online platform for fresh and flavorful seafood, trusted by customers for quality, convenience, and excellent service, while our vision is to provide high-quality seafood dishes through a fast, reliable, and user-friendly online ordering experience. At CoastCrave, we don't just serve seafood — we serve smiles, comfort, and satisfaction in every bite, so order now and taste the freshness you deserve!
+                </p>
+            </div>
+        </div>
+        
+        <!-- NEW: Separated Image Section -->
+        <div class="about-images-section">
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 text-cyan-300 text-center fade-in">Image Gallery</h3>
+            
+            <!-- UPDATED: Image Gallery with larger images and horizontal scroll -->
+            <div class="scroll-hint">
+                <i class="fas fa-arrow-right"></i>
+                <span>Scroll to explore more images</span>
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="Gemini_Generated_Image_qydh33qydh33qydh.png" alt="Fresh Daily Catch" class="gallery-img">
+                    <div class="gallery-caption">"Savor the ocean's bounty at our restaurant.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="delivery coast.png" alt="Expert Preparation" class="gallery-img">
+                    <div class="gallery-caption">From our restaurant to your doorstep.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Baked Mussels with cheese.jpg" alt="Beautiful Presentation" class="gallery-img">
+                    <div class="gallery-caption">Our restaurant's most-loved dish.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="staff cooking.jpg" alt="Seafood Platter" class="gallery-img">
+                    <div class="gallery-caption">The heart of our restaurant – our kitchen team.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://media.istockphoto.com/id/2169202108/photo/fisherman-fishing-on-boat-in-sea-during-sunset.jpg?s=612x612&w=0&k=20&c=Uty_qwu-Uwe7nLkcV_tB8BxaBpDInFibQXWMxcpkSvA=" alt="Fresh Ingredients" class="gallery-img">
+                    <div class="gallery-caption">Fresh Daily Catch from Local Fishermen</div>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-2 text-sm">See what makes our restaurant special – scroll through.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-cyan-300 relative fade-in">What Our Customers Say</h2>
+            
+            <div class="reviews-container">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Review 1 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <img src="jade.jpg" alt="Jade Manigbas" class="review-avatar">
+                            <div>
+                                <div class="review-name">Jaderie Manigbas</div>
+                                <div class="review-date">2 days ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "The grilled salmon was absolutely perfect! So fresh and flavorful. The delivery was quick and the packaging kept everything at the right temperature. Will definitely order again!"
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <img src="rayver.jpg" alt="John Rayver Soriano" class="review-avatar">
+                            <div>
+                                <div class="review-name">John Rayver Soriano</div>
+                                <div class="review-date">1 week ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="review-text">
+                            "I've tried many seafood delivery services, but CoastCrave stands out. The bangus sisig was incredible - perfectly seasoned and so tasty. The portion size was generous too!"
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <img src="cecille.jpg" alt="Cecille Hermoso" class="review-avatar">
+                            <div>
+                                <div class="review-name">Cecille Hermoso</div>
+                                <div class="review-date">3 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "The seafood kare-kare was a revelation! So rich and flavorful. I appreciate that they use sustainable sourcing practices. It feels good to support a business that cares about the environment."
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <button class="btn bg-cyan-400 hover:bg-cyan-300 text-gray-900 px-6 py-3 rounded-full font-semibold transition transform hover:-translate-y-1 shadow-lg fade-in" id="addReviewBtn">Add Your Review</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-16 bg-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-cyan-300 relative fade-in">Find Us</h2>
+        
+        <!-- Map and Travel Guide Side by Side -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Map Card - UPDATED: Added contact-map-container class -->
+            <div class="contact-map-container bg-blue-900 bg-opacity-20 rounded-lg overflow-hidden border border-blue-700 shadow-lg fade-in">
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247795.6653714265!2d120.8783304!3d13.8000948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd112b0e7c3b2d%3A0x9c0c6f6f5e5e5e5e!2sSan%20Pascual%2C%20Batangas!5e0!3m2!1sen!2sph!4v1640000000000!5m2!1sen!2sph" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-cyan-300 mb-2">Our Location in San Pascual</h4>
+                    <p class="text-gray-300 text-sm">Located in San Pascual, Batangas, close to well-known seafood markets in nearby towns like Bauan and Batangas City. We source our seafood from trusted suppliers to ensure consistent freshness and quality.</p>
+                </div>
+            </div>
+            
+            <!-- Travel Guide Card - UPDATED: Added travel-guide-card class -->
+            <div class="travel-guide-card bg-blue-900 bg-opacity-20 rounded-lg p-6 border border-blue-700 shadow-lg fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-cyan-300">Travel Guide</h3>
+                <div class="space-y-4">
+                    <!-- UPDATED: Added travel-tip class to each tip -->
+                    <div class="travel-tip flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 class="font-semibold text-cyan-300 mb-2">Getting Here</h4>
+                            <p class="text-gray-300 text-sm">We're conveniently located in San Pascual, Batangas. You can reach us by private vehicle or public transportation from Manila in approximately 2-3 hours.</p>
+                        </div>
+                    </div>
+                    <div class="travel-tip flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 class="font-semibold text-cyan-300 mb-2">Best Time to Visit</h4>
+                            <p class="text-gray-300 text-sm">No need for a coastal breeze — from November to May, the dry season is your season to feast on our ocean-inspired dishes!</p>
+                        </div>
+                    </div>
+                    <div class="travel-tip flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 class="font-semibold text-cyan-300 mb-2">Nearby Attractions</h4>
+                            <p class="text-gray-300 text-sm">After a satisfying meal, take a stroll around local shops, parks, and attractions — there's always something fun nearby!</p>
+                        </div>
+                    </div>
+                    <div class="travel-tip flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 class="font-semibold text-cyan-300 mb-2">Parking Information</h4>
+                            <p class="text-gray-300 text-sm">We offer ample parking space for our customers, including designated areas for persons with disabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Get In Touch Section -->
+        <div class="mb-12">
+            <h3 class="text-2xl md:text-2xl font-bold mb-6 text-cyan-300 text-center fade-in">Get In Touch</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Our Location Container - UPDATED: Added contact-info-card class -->
+                <div class="contact-info-card bg-blue-900 bg-opacity-20 rounded-lg p-6 border border-blue-700 shadow-lg text-center fade-in">
+                    <div class="contact-icon text-3xl mb-4 text-cyan-400">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-cyan-300 mb-3">Our Location</h4>
+                    <p class="text-gray-300 mb-2">San Pascual, Batangas, Philippines</p>
+                    <p class="text-sm text-gray-400">Conveniently located for everyone who craves fresh seafood and good vibes.</p>
+                </div>
+                
+                <!-- Call Us Container - UPDATED: Added contact-info-card class -->
+                <div class="contact-info-card bg-blue-900 bg-opacity-20 rounded-lg p-6 border border-blue-700 shadow-lg text-center fade-in">
+                    <div class="contact-icon text-3xl mb-4 text-cyan-400">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-cyan-300 mb-3">Call Us</h4>
+                    <p class="text-gray-300">+63 948 075 4685</p>
+                    <p class="text-gray-300">+63 993 811 6496</p>
+                </div>
+                
+                <!-- Email Us Container - UPDATED: Added contact-info-card class -->
+                <div class="contact-info-card bg-blue-900 bg-opacity-20 rounded-lg p-6 border border-blue-700 shadow-lg text-center fade-in">
+                    <div class="contact-icon text-3xl mb-4 text-cyan-400">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-cyan-300 mb-3">Email Us</h4>
+                    <p class="text-gray-300">info@coastcrave.ph</p>
+                    <p class="text-gray-300">orders@coastcrave.ph</p>
+                </div>
+                
+                <!-- Opening Hours Container - UPDATED: Added contact-info-card class -->
+                <div class="contact-info-card bg-blue-900 bg-opacity-20 rounded-lg p-6 border border-blue-700 shadow-lg text-center fade-in">
+                    <div class="contact-icon text-3xl mb-4 text-cyan-400">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-cyan-300 mb-3">Opening Hours</h4>
+                    <p class="text-gray-300 mb-1">Monday - Saturday:</p>
+                    <p class="text-gray-300 mb-3">9:00 AM - 9:00 PM</p>
+                    <p class="text-gray-300 mb-1">Sunday:</p>
+                    <p class="text-gray-300">10:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-blue-800">
+        <div class="container mx-auto px-4">
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 CoastCrave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All your modals remain exactly the same -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" id="toggleLoginPassword">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn w-full bg-cyan-400 hover:bg-cyan-300 text-gray-900 py-3 rounded font-semibold transition">Login</button>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create an Account</h2>
+            <div class="user-type-selector">
+                <div class="user-type active" data-type="customer">Customer</div>
+                <div class="user-type" data-type="staff">Staff</div>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" id="toggleRegisterPassword">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirm">Confirm Password</label>
+                    <div class="password-container">
+                        <input type="password" id="registerConfirm" class="form-control" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" id="toggleRegisterConfirm">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn w-full bg-cyan-400 hover:bg-cyan-300 text-gray-900 py-3 rounded font-semibold transition">Register</button>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems" class="max-h-96 overflow-y-auto mb-4">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-cyan-300">Total: ₱<span id="cartTotal">0.00</span></h3>
+                <button id="checkoutBtn" class="bg-cyan-400 hover:bg-cyan-300 text-gray-900 px-4 py-2 rounded font-semibold transition">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="checkoutName">Full Name</label>
+                    <input type="text" id="checkoutName" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutAddress">Delivery Address</label>
+                    <textarea id="checkoutAddress" class="form-control" placeholder="Enter your delivery address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutPhone">Phone Number</label>
+                    <input type="tel" id="checkoutPhone" class="form-control" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutPayment">Payment Method</label>
+                    <select id="checkoutPayment" class="form-control" required>
+                        <option value="">Select payment method</option>
+                        <option value="cash">Cash on Delivery</option>
+                        <option value="gcash">GCash</option>
+                        <option value="card">Credit/Debit Card</option>
+                    </select>
+                </div>
+                <div class="flex justify-between items-center mt-6">
+                    <h3 class="text-xl font-bold text-cyan-300">Total: ₱<span id="checkoutTotal">0.00</span></h3>
+                    <button type="submit" class="bg-cyan-400 hover:bg-cyan-300 text-gray-900 px-4 py-2 rounded font-semibold transition">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="orderConfirmationModal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close-modal">&times;</span>
+            <div class="text-5xl text-green-500 mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-cyan-300 mb-4">Order Placed Successfully!</h2>
+            <p class="mb-6">Your order has been received and is being prepared. You can track your order status in your account.</p>
+            <p class="mb-2">Order ID: <span id="orderId" class="font-bold">#12345</span></p>
+            <p class="mb-6">Estimated delivery: <span id="deliveryTime" class="font-bold">45 minutes</span></p>
+            <button id="closeOrderModal" class="bg-cyan-400 hover:bg-cyan-300 text-gray-900 px-6 py-2 rounded font-semibold transition">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Share Your Experience</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Your Name</label>
+                    <input type="text" id="reviewName" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewRating">Rating</label>
+                    <div class="flex space-x-2" id="reviewRating">
+                        <i class="far fa-star text-yellow-400 text-2xl cursor-pointer" data-rating="1"></i>
+                        <i class="far fa-star text-yellow-400 text-2xl cursor-pointer" data-rating="2"></i>
+                        <i class="far fa-star text-yellow-400 text-2xl cursor-pointer" data-rating="3"></i>
+                        <i class="far fa-star text-yellow-400 text-2xl cursor-pointer" data-rating="4"></i>
+                        <i class="far fa-star text-yellow-400 text-2xl cursor-pointer" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="selectedRating" value="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" class="form-control" placeholder="Share your experience with CoastCrave..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn w-full bg-cyan-400 hover:bg-cyan-300 text-gray-900 py-3 rounded font-semibold transition">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Application State
+        let appState = {
+            isLoggedIn: false,
+            currentUser: null,
+            currentUserType: 'customer',
+            cart: [],
+            orders: [],
+            users: [
+                { id: 1, name: 'Admin User', email: 'admin@coastcrave.com', password: 'admin123', type: 'admin', status: 'active', registrationDate: '2023-01-01T00:00:00.000Z' },
+                { id: 2, name: 'Staff User', email: 'staff@coastcrave.com', password: 'staff123', type: 'staff', status: 'active', registrationDate: '2023-01-02T00:00:00.000Z' },
+                { id: 3, name: 'Customer User', email: 'customer@coastcrave.com', password: 'customer123', type: 'customer', status: 'active', registrationDate: '2023-01-03T00:00:00.000Z' }
+            ],
+            menuItems: [
+                // Fish Dishes
+                 {
+                        id: 1,
+                        name: "Grilled Salmon",
+                        description: "A flaky, moist, and juicy fish with a slightly smoky flavor and a charred exterior, achieved by cooking it directly on a grill.",
+                        price: 250,
+                        category: "fish",
+                        image: "grilled salmon.png",
+                        rating: 4.8,
+                        badge: "top-pick" // Top pick badge
+                    },
+                    {
+                        id: 2,
+                        name: "Salmon Teriyaki",
+                        description: "Sweet and savory Japanese-style grilled salmon.",
+                        price: 270,
+                        category: "fish",
+                        image: "salmon teriyaki.jpg",
+                        rating: 4.7
+                    },
+                    {
+                        id: 3,
+                        name: "Fish and Chips",
+                        description: "Crispy battered cream dory served with fries and tartar sauce.",
+                        price: 180,
+                        category: "fish",
+                        image: "freepik__the-style-is-candid-image-photography-with-natural__19046.png",
+                        rating: 4.5
+                    },
+                    {
+                        id: 4,
+                        name: "Bangus Sisig (Milkfish Sisig)",
+                        description: "Sizzling boneless bangus flakes tossed in spicy mayo.",
+                        price: 120,
+                        category: "fish",
+                        image: "milkfish sisig.jpg",
+                        rating: 4.6,
+                        badge: "fresh" // Freshly added badge
+                    },
+                    // Shellfish Dishes
+                    {
+                        id: 5,
+                        name: "Baked Tahong (Mussels with Cheese)",
+                        description: "Oven-baked mussels topped with creamy garlic butter and melted cheese.",
+                        price: 180,
+                        category: "shellfish",
+                        image: "Baked Mussels with cheese.jpg",
+                        rating: 4.4,
+                        badge: "top-pick" // Top pick badge
+                    },
+                    {
+                        id: 6,
+                        name: "Garlic Butter Clams",
+                        description: "Fresh local clams sautéed in butter and garlic sauce.",
+                        price: 150,
+                        category: "shellfish",
+                        image: "buttered garlic clams.jpg",
+                        rating: 4.3
+                    },
+                    {
+                        id: 7,
+                        name: "Steamed Oysters with Ginger & Soy",
+                        description: "Lightly steamed oysters in savory ginger-soy dressing.",
+                        price: 180,
+                        category: "shellfish",
+                        image: "Steamed Oysters with Ginger and Soy Sauce.jpg",
+                        rating: 4.5,
+                        badge: "fresh" // Freshly added badge
+                    },
+                    {
+                        id: 8,
+                        name: "Spicy Scallops in Cream Sauce",
+                        description: "Tender scallops in a rich, spicy cream sauce.",
+                        price: 200,
+                        category: "shellfish",
+                        image: "spicy scallops in cream cheese.jpg",
+                        rating: 4.7
+                    },
+                    // Soups & Stews
+                    {
+                        id: 9,
+                        name: "Sinigang na Hipon",
+                        description: "Filipino sour soup with shrimp, kangkong, and radish.",
+                        price: 150,
+                        category: "soups",
+                        image: "Sinigang na Hipon.jpg",
+                        rating: 4.6,
+                        badge: "top-pick" // Top pick badge
+                    },
+                    {
+                        id: 10,
+                        name: "Seafood Kare-Kare",
+                        description: "Creamy peanut stew with shrimp, squid, and vegetables.",
+                        price: 200,
+                        category: "soups",
+                        image: "Seafood Kare-Kare.jpg",
+                        rating: 4.5
+                    },
+                    {
+                        id: 11,
+                        name: "Bouillabaisse",
+                        description: "Hearty seafood stew with fish, clams, and shrimp.",
+                        price: 220,
+                        category: "soups",
+                        image: "Bouillabaisse (Seafood Stew).jpg",
+                        rating: 4.7
+                    },
+                    {
+                        id: 12,
+                        name: "Ginataang Alimasag",
+                        description: "A Filipino seafood dish where blue crabs are steamed and simmered in spiced coconut milk with string beans and squash.",
+                        price: 250,
+                        category: "soups",
+                        image: "Ginataang Alimasag.jpg",
+                        rating: 4.8,
+                        badge: "fresh" // Freshly added badge
+                    },
+                    // Squids
+                    {
+                        id: 13,
+                        name: "Calamares (Fried Squid Rings)",
+                        description: "Filipino favorite crispy golden squid rings.",
+                        price: 120,
+                        category: "squids",
+                        image: "Calamares (Fried Squid Rings).jpg",
+                        rating: 4.4,
+                        badge: "top-pick" // Top pick badge
+                    },
+                    {
+                        id: 14,
+                        name: "Adobong Pusit (Squid Adobo)",
+                        description: "Squid simmered in soy sauce, vinegar, and garlic.",
+                        price: 180,
+                        category: "squids",
+                        image: "adobong pusit.jpg",
+                        rating: 4.6
+                    },
+                    {
+                        id: 15,
+                        name: "Grilled Stuffed Squid",
+                        description: "Squid stuffed with tomatoes, onions, and herbs.",
+                        price: 160,
+                        category: "squids",
+                        image: "Grilled Stuffed Squid.png",
+                        rating: 4.5
+                    },
+                    {
+                        id: 16,
+                        name: "Squid in Veggies and Oyster Sauce",
+                        description: "Stir-fried squid with vegetables and oyster sauce.",
+                        price: 140,
+                        category: "squids",
+                        image: "Squid in Veggies and Oyster Sauce.jpg",
+                        rating: 4.3,
+                        badge: "fresh" // Freshly added badge
+                    },
+                    // Sauces
+                    {
+                        id: 17,
+                        name: "Garlic Butter Sauce",
+                        description: "Rich, creamy blend of butter and roasted garlic.",
+                        price: 30,
+                        category: "sauces",
+                        image: "Garlic Butter Sauce.png",
+                        rating: 4.5,
+                        badge: "top-pick" // Top pick badge
+                    },
+                    {
+                        id: 18,
+                        name: "Sweet Chili Sauce",
+                        description: "Sweet and mildly spicy dipping sauce.",
+                        price: 30,
+                        category: "sauces",
+                        image: "Sweet Chili Sauce.jpg",
+                        rating: 4.3
+                    },
+                    {
+                        id: 19,
+                        name: "Soy-Calamansi Sauce",
+                        description: "Classic Filipino soy sauce with calamansi and chili.",
+                        price: 25,
+                        category: "sauces",
+                        image: "Soy-Calamansi Sauce.png",
+                        rating: 4.6
+                    },
+                    {
+                        id: 20,
+                        name: "Spicy Vinegar Dip",
+                        description: "Local suka with chili, garlic, and onion for a kick.",
+                        price: 20,
+                        category: "sauces",
+                        image: "Spicy Vinegar Dip.png",
+                        rating: 4.4,
+                        badge: "fresh" // Freshly added badge
+                    },
+                    {
+                        id: 21,
+                        name: "Tartar Sauce",
+                        description: "Creamy mayo-based sauce with pickles and herbs.",
+                        price: 30,
+                        category: "sauces",
+                        image: "tartar sauce.jpg",
+                        rating: 4.3
+                    },
+                    {
+                        id: 22,
+                        name: "Oyster Sauce Glaze",
+                        description: "Thick, savory-sweet Chinese-style oyster blend.",
+                        price: 25,
+                        category: "sauces",
+                        image: "oyster sauce glaze.jpg",
+                        rating: 4.4
+                    },
+                    {
+                        id: 23,
+                        name: "Cheese Sauce",
+                        description: "Melted creamy cheese perfect for topping baked dishes.",
+                        price: 35,
+                        category: "sauces",
+                        image: "cheese sauce.jpg",
+                        rating: 4.6
+                    },
+                    {
+                        id: 24,
+                        name: "Coconut Curry Sauce",
+                        description: "Creamy coconut-based curry with mild spice.",
+                        price: 40,
+                        category: "sauces",
+                        image: "coconut curry sauce.jpg",
+                        rating: 4.7,
+                        badge: "fresh" // Freshly added badge
+                    }
+            ]
+        };
+
+       // DOM Elements
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const cartModal = document.getElementById('cartModal');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+        const reviewModal = document.getElementById('reviewModal');
+
+        // UPDATED: Notification elements
+        const loginNotification = document.getElementById('loginNotification');
+        const reviewLoginNotification = document.getElementById('reviewLoginNotification');
+        const guestRestrictionNotification = document.getElementById('guestRestrictionNotification');
+        const logoutConfirmation = document.getElementById('logoutConfirmation');
+        const successNotification = document.getElementById('successNotification');
+        const invalidCredentialsNotification = document.getElementById('invalidCredentialsNotification');
+        const reviewSuccessNotification = document.getElementById('reviewSuccessNotification');
+        const cartEmptyNotification = document.getElementById('cartEmptyNotification');
+        const infoNotification = document.getElementById('infoNotification');
+
+        // NEW: Mobile navigation elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+        // NEW: Menu notice element
+        const menuNotice = document.getElementById('menuNotice');
+
+            // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUsersFromStorage();
+            loadMenuItems();
+            setupEventListeners();
+            checkAuthStatus();
+
+            
+            // Add event listener for the "Add Review" button
+            document.getElementById('addReviewBtn').addEventListener('click', function() {
+                if (!appState.isLoggedIn) {
+                    // NEW: Show specific review login notification
+                    showNotification(reviewLoginNotification);
+                    return;
+                }
+                
+                // NEW: Check if user is a guest
+                if (appState.currentUser && appState.currentUser.type === 'guest') {
+                    showNotification(guestRestrictionNotification);
+                    return;
+                }
+                
+                reviewModal.style.display = 'block';
+            });
+            
+            // NEW: Initialize animations
+            initAnimations();
+            
+            // NEW: Setup mobile navigation
+            setupMobileNavigation();
+            
+            // NEW: Update menu notice visibility
+            updateMenuNotice();
+        });
+
+        // NEW: Setup mobile navigation
+        function setupMobileNavigation() {
+            // Open mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+                mobileNavOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+            
+            // Close mobile menu
+            mobileCloseBtn.addEventListener('click', closeMobileMenu);
+            mobileNavOverlay.addEventListener('click', closeMobileMenu);
+            
+            // Close mobile menu when clicking on a link
+            const mobileNavLinks = mobileNav.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+        }
+        
+       // NEW: Close mobile menu function
+function closeMobileMenu() {
+    if (mobileNav && mobileNavOverlay) {
+        mobileNav.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Force a reflow to ensure the menu is fully closed
+        void mobileNav.offsetHeight;
+    }
+}
+
+        // NEW: Update menu notice visibility
+        function updateMenuNotice() {
+            if (menuNotice) {
+                if (!appState.isLoggedIn || appState.currentUserType === 'guest') {
+                    menuNotice.style.display = 'block';
+                } else {
+                    menuNotice.style.display = 'none';
+                }
+            }
+        }
+
+        // NEW: Initialize animations
+        function initAnimations() {
+            // Create an Intersection Observer to detect when elements enter the viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all elements with animation classes
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Load users from localStorage
+        function loadUsersFromStorage() {
+            const savedUsers = localStorage.getItem('seafoodUsers');
+            if (savedUsers) {
+                appState.users = JSON.parse(savedUsers);
+            }
+        }
+
+        // Save users to localStorage
+        function saveUsersToStorage() {
+            localStorage.setItem('seafoodUsers', JSON.stringify(appState.users));
+        }
+
+       // Load menu items from appState
+        function loadMenuItems(category = 'all') {
+            const menuContainer = document.getElementById('menuItems');
+            menuContainer.innerHTML = '';
+            
+            const filteredItems = category === 'all' 
+                ? appState.menuItems 
+                : appState.menuItems.filter(item => item.category === category);
+            
+            filteredItems.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item bg-blue-900 bg-opacity-20 rounded-lg overflow-hidden shadow-lg border border-blue-700 transition duration-300';
+                
+                // Generate badge HTML if item has a badge
+                let badgeHTML = '';
+                if (item.badge === 'top-pick') {
+                    badgeHTML = '<div class="menu-badge top-pick-badge"><i class="fas fa-crown mr-1"></i>Top Picks</div>';
+                } else if (item.badge === 'fresh') {
+                    badgeHTML = '<div class="menu-badge fresh-badge"><i class="fas fa-leaf mr-1"></i>Freshly Added</div>';
+                }
+                
+                menuItem.innerHTML = `
+                    <div class="menu-img-container">
+                        <div class="menu-img h-48 bg-cover bg-center" style="background-image: url('${item.image}');"></div>
+                        ${badgeHTML}
+                    </div>
+                    <div class="menu-content p-4">
+                        <div class="menu-title flex justify-between mb-2">
+                            <h3 class="text-lg font-bold text-cyan-300">${item.name}</h3>
+                            <span class="menu-price text-red-400 font-bold">₱${item.price}</span>
+                        </div>
+                        <p class="menu-desc text-gray-300 text-sm mb-4">${item.description}</p>
+                        <div class="menu-footer flex justify-between items-center">
+                            <div class="rating text-yellow-400">
+                                ${generateStarRating(item.rating)}
+                            </div>
+                            <button class="add-to-cart bg-cyan-400 hover:bg-cyan-300 text-gray-900 px-4 py-2 rounded-full font-semibold transition" data-id="${item.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                menuContainer.appendChild(menuItem);
+            });
+            
+            // Set up add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = parseInt(this.getAttribute('data-id'));
+                    addToCart(itemId);
+                });
+            });
+        }
+
+
+        // Generate star rating HTML
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // UPDATED: Show notification function
+        function showNotification(notificationElement) {
+            // Hide all notifications first
+            hideAllNotifications();
+            
+            // Show the specific notification
+            notificationElement.classList.add('show');
+            
+            // Auto-hide after 7 seconds
+            setTimeout(() => {
+                hideNotification(notificationElement);
+            }, 7000);
+        }
+
+        // UPDATED: Hide notification function
+        function hideNotification(notificationElement) {
+            notificationElement.classList.remove('show');
+        }
+
+        // UPDATED: Hide all notifications
+        function hideAllNotifications() {
+            hideNotification(loginNotification);
+            hideNotification(reviewLoginNotification);
+            hideNotification(guestRestrictionNotification);
+            hideNotification(logoutConfirmation);
+            hideNotification(successNotification);
+            hideNotification(invalidCredentialsNotification);
+            hideNotification(reviewSuccessNotification);
+            hideNotification(cartEmptyNotification);
+            hideNotification(infoNotification);
+        }
+
+        // NEW: Show info notification with custom message
+        function showInfoNotification(title, message, type = 'info') {
+            document.getElementById('infoNotificationTitle').textContent = title;
+            document.getElementById('infoNotificationMessage').textContent = message;
+            
+            // Set icon based on type
+            switch(type) {
+                case 'success':
+                    document.getElementById('infoNotificationIcon').innerHTML = '<i class="fas fa-check-circle text-green-500"></i>';
+                    break;
+                case 'warning':
+                    document.getElementById('infoNotificationIcon').innerHTML = '<i class="fas fa-exclamation-triangle text-yellow-500"></i>';
+                    break;
+                case 'error':
+                    document.getElementById('infoNotificationIcon').innerHTML = '<i class="fas fa-exclamation-circle text-red-500"></i>';
+                    break;
+                default:
+                    document.getElementById('infoNotificationIcon').innerHTML = '<i class="fas fa-info-circle text-cyan-400"></i>';
+            }
+            
+            showNotification(infoNotification);
+        }
+
+        // NEW: Toggle password visibility
+        function togglePasswordVisibility(passwordField, toggleButton) {
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleButton.innerHTML = '<i class="far fa-eye-slash"></i>';
+            } else {
+                passwordField.type = 'password';
+                toggleButton.innerHTML = '<i class="far fa-eye"></i>';
+            }
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Modal controls
+            document.getElementById('loginBtnDropdown').addEventListener('click', () => loginModal.style.display = 'block');
+            document.getElementById('registerBtnDropdown').addEventListener('click', () => registerModal.style.display = 'block');
+            document.getElementById('guestBtn').addEventListener('click', continueAsGuest);
+            document.getElementById('showRegister').addEventListener('click', (e) => {
+                e.preventDefault();
+                loginModal.style.display = 'none';
+                registerModal.style.display = 'block';
+            });
+            document.getElementById('showLogin').addEventListener('click', (e) => {
+                e.preventDefault();
+                registerModal.style.display = 'none';
+                loginModal.style.display = 'block';
+            });
+            
+            // Close modals
+            document.querySelectorAll('.close-modal').forEach(button => {
+                button.addEventListener('click', closeAllModals);
+            });
+            
+            // User type selection
+            document.querySelectorAll('.user-type').forEach(type => {
+                type.addEventListener('click', function() {
+                    document.querySelectorAll('.user-type').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    appState.currentUserType = this.dataset.type;
+                });
+            });
+            
+            // Form submissions
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('registerForm').addEventListener('submit', handleRegister);
+            document.getElementById('checkoutForm').addEventListener('submit', handleCheckout);
+            document.getElementById('reviewForm').addEventListener('submit', handleReview);
+            
+            // Cart and checkout
+            document.getElementById('cartIcon').addEventListener('click', openCart);
+            document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+            document.getElementById('closeOrderModal').addEventListener('click', closeOrderConfirmation);
+            
+            // UPDATED: Notification controls
+            document.getElementById('closeLoginNotification').addEventListener('click', () => hideNotification(loginNotification));
+            document.getElementById('notificationLogin').addEventListener('click', () => {
+                hideNotification(loginNotification);
+                loginModal.style.display = 'block';
+            });
+            document.getElementById('notificationRegister').addEventListener('click', () => {
+                hideNotification(loginNotification);
+                registerModal.style.display = 'block';
+            });
+            
+            // NEW: Review login notification controls
+            document.getElementById('closeReviewLoginNotification').addEventListener('click', () => hideNotification(reviewLoginNotification));
+            document.getElementById('reviewNotificationLogin').addEventListener('click', () => {
+                hideNotification(reviewLoginNotification);
+                loginModal.style.display = 'block';
+            });
+            document.getElementById('reviewNotificationRegister').addEventListener('click', () => {
+                hideNotification(reviewLoginNotification);
+                registerModal.style.display = 'block';
+            });
+            
+            // NEW: Guest restriction notification controls
+            document.getElementById('closeGuestRestrictionNotification').addEventListener('click', () => hideNotification(guestRestrictionNotification));
+            document.getElementById('guestRestrictionLogin').addEventListener('click', () => {
+                hideNotification(guestRestrictionNotification);
+                loginModal.style.display = 'block';
+            });
+            document.getElementById('guestRestrictionRegister').addEventListener('click', () => {
+                hideNotification(guestRestrictionNotification);
+                registerModal.style.display = 'block';
+            });
+            
+            // NEW: Logout confirmation controls
+            document.getElementById('closeLogoutConfirmation').addEventListener('click', () => hideNotification(logoutConfirmation));
+            document.getElementById('cancelLogout').addEventListener('click', () => hideNotification(logoutConfirmation));
+            document.getElementById('confirmLogout').addEventListener('click', confirmLogout);
+            
+            document.getElementById('closeSuccessNotification').addEventListener('click', () => hideNotification(successNotification));
+            document.getElementById('successNotificationLogin').addEventListener('click', () => {
+                hideNotification(successNotification);
+                loginModal.style.display = 'block';
+            });
+            
+            document.getElementById('closeInvalidCredentials').addEventListener('click', () => hideNotification(invalidCredentialsNotification));
+            document.getElementById('invalidCredentialsRegister').addEventListener('click', () => {
+                hideNotification(invalidCredentialsNotification);
+                registerModal.style.display = 'block';
+            });
+            document.getElementById('invalidCredentialsRetry').addEventListener('click', () => {
+                hideNotification(invalidCredentialsNotification);
+                loginModal.style.display = 'block';
+            });
+            
+            document.getElementById('closeReviewNotification').addEventListener('click', () => hideNotification(reviewSuccessNotification));
+            document.getElementById('closeReviewSuccess').addEventListener('click', () => hideNotification(reviewSuccessNotification));
+            
+            document.getElementById('closeCartEmptyNotification').addEventListener('click', () => hideNotification(cartEmptyNotification));
+            document.getElementById('closeCartEmpty').addEventListener('click', () => hideNotification(cartEmptyNotification));
+            
+            document.getElementById('closeInfoNotification').addEventListener('click', () => hideNotification(infoNotification));
+            document.getElementById('infoNotificationConfirm').addEventListener('click', () => hideNotification(infoNotification));
+            
+            // NEW: Password toggle functionality
+            document.getElementById('toggleLoginPassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('loginPassword');
+                togglePasswordVisibility(passwordField, this);
+            });
+            
+            document.getElementById('toggleRegisterPassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('registerPassword');
+                togglePasswordVisibility(passwordField, this);
+            });
+            
+            document.getElementById('toggleRegisterConfirm').addEventListener('click', function() {
+                const passwordField = document.getElementById('registerConfirm');
+                togglePasswordVisibility(passwordField, this);
+            });
+            
+             // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const category = this.getAttribute('data-category');
+                    loadMenuItems(category);
+                });
+            });
+
+            
+            // Review rating stars
+            document.querySelectorAll('#reviewRating i').forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    document.getElementById('selectedRating').value = rating;
+                    
+                    // Update star display
+                    document.querySelectorAll('#reviewRating i').forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.remove('far');
+                            s.classList.add('fas');
+                        } else {
+                            s.classList.remove('fas');
+                            s.classList.add('far');
+                        }
+                    });
+                });
+            });
+        }
+
+        // NEW: Confirm logout function
+        function confirmLogout() {
+            appState.isLoggedIn = false;
+            appState.currentUser = null;
+            appState.cart = [];
+            localStorage.removeItem('currentUser');
+            resetDropdownToDefault();
+            hideNotification(logoutConfirmation);
+            
+            // NEW: Update menu notice
+            updateMenuNotice();
+            
+            updateCartCount();
+            showInfoNotification('Logged Out', 'You have been logged out successfully.', 'info');
+        }
+
+        // Reset dropdown to default state
+        function resetDropdownToDefault() {
+            const dropdownBtn = document.querySelector('.dropdown-btn');
+            if (dropdownBtn) {
+                dropdownBtn.innerHTML = `
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                `;
+            }
+            
+            // Also ensure the dropdown content shows login/register options
+            const dropdownContent = document.getElementById('dropdownContent');
+            if (dropdownContent) {
+                dropdownContent.innerHTML = `
+                    <a href="#" id="loginBtnDropdown">Login</a>
+                    <a href="#" id="registerBtnDropdown">Register</a>
+                    <a href="#" id="guestBtn">Continue as Guest</a>
+                `;
+                
+                // Reattach event listeners to the new dropdown items
+                document.getElementById('loginBtnDropdown').addEventListener('click', () => loginModal.style.display = 'block');
+                document.getElementById('registerBtnDropdown').addEventListener('click', () => registerModal.style.display = 'block');
+                document.getElementById('guestBtn').addEventListener('click', continueAsGuest);
+            }
+        }
+
+        // Check authentication status
+        function checkAuthStatus() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                appState.currentUser = JSON.parse(savedUser);
+                appState.isLoggedIn = true;
+                appState.currentUserType = appState.currentUser.type;
+                updateUIForAuth();
+            } else {
+                // Ensure dropdown is reset to default when no user is logged in
+                resetDropdownToDefault();
+            }
+            
+            // NEW: Update menu notice visibility
+            updateMenuNotice();
+        }
+
+        // Handle login - FIXED FOR MOBILE REDIRECT
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Find user by email and password
+    const user = appState.users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        appState.currentUser = user;
+        appState.isLoggedIn = true;
+        appState.currentUserType = user.type;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        
+        // Close mobile menu if open
+        closeMobileMenu();
+        
+        // Close all modals
+        closeAllModals();
+        
+        // Clear form
+        document.getElementById('loginForm').reset();
+        
+        // NEW: Update menu notice
+        updateMenuNotice();
+        
+        // Force a small delay to ensure DOM is updated and mobile menu is closed
+        setTimeout(() => {
+            // Redirect based on user type
+            if (user.type === 'admin') {
+                window.location.href = 'admin.html';
+                return;
+            } else if (user.type === 'staff') {
+                window.location.href = 'staff.html';
+                return;
+            } else if (user.type === 'customer') {
+                // Use replace instead of href to ensure navigation
+                window.location.replace('customer_dashboard.html');
+                return;
+            }
+            
+            updateUIForAuth();
+            showInfoNotification('Welcome Back!', `Welcome back, ${user.name}!`, 'success');
+        }, 500); // Increased delay to 500ms
+    } else {
+        // Show invalid credentials notification
+        showNotification(invalidCredentialsNotification);
+    }
+}
+        // Handle registration
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirm').value;
+            const userType = appState.currentUserType;
+            
+            if (password !== confirmPassword) {
+                showInfoNotification('Registration Error', 'Passwords do not match!', 'error');
+                return;
+            }
+            
+            // Check if user already exists
+            if (appState.users.find(u => u.email === email)) {
+                showInfoNotification('Registration Error', 'User with this email already exists!', 'error');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                id: appState.users.length + 1,
+                name,
+                email,
+                password,
+                type: userType,
+                status: 'active',
+                registrationDate: new Date().toISOString()
+            };
+            
+            appState.users.push(newUser);
+            
+            // Save to localStorage
+            saveUsersToStorage();
+            
+            appState.currentUser = newUser;
+            appState.isLoggedIn = true;
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+            
+            // NEW: Update menu notice
+            updateMenuNotice();
+            
+            // UPDATED: Show success notification
+            showNotification(successNotification);
+            
+            // Close registration modal
+            closeAllModals();
+        }
+
+        // Continue as guest - NEW: Create proper guest account
+        function continueAsGuest() {
+            // Create a guest user account
+            const guestUser = {
+                id: 'guest-' + Date.now(),
+                name: 'Guest User',
+                email: 'guest@coastcrave.com',
+                password: '',
+                type: 'guest',
+                status: 'active',
+                registrationDate: new Date().toISOString()
+            };
+            
+            appState.currentUser = guestUser;
+            appState.isLoggedIn = true;
+            appState.currentUserType = 'guest';
+            localStorage.setItem('currentUser', JSON.stringify(guestUser));
+            
+            // NEW: Update menu notice
+            updateMenuNotice();
+            
+            updateUIForAuth();
+            showInfoNotification('Guest Mode', 'Continuing as guest. Some features may be limited.', 'info');
+        }
+
+        // Update UI based on authentication status
+        function updateUIForAuth() {
+            if (appState.isLoggedIn && appState.currentUser) {
+                // Check if user is a guest
+                const isGuest = appState.currentUser.type === 'guest';
+                
+                document.querySelector('.dropdown-btn').innerHTML = `
+                    <i class="fas fa-user"></i>
+                    <span>${appState.currentUser.name}</span>
+                    ${isGuest ? '<span class="guest-indicator">Guest</span>' : ''}
+                    <i class="fas fa-chevron-down text-xs"></i>
+                `;
+                
+                // Update dropdown content for logged-in users
+                const dropdownContent = document.getElementById('dropdownContent');
+                if (dropdownContent) {
+                    dropdownContent.innerHTML = `
+                        <div class="user-info">
+                            <div class="font-semibold text-cyan-300">${appState.currentUser.name}</div>
+                            <div class="text-sm text-gray-300">${appState.currentUser.email}</div>
+                            <div class="text-xs text-cyan-400 mt-1 capitalize">${appState.currentUser.type}</div>
+                        </div>
+                        <a href="#" id="logoutBtnMain">Logout</a>
+                    `;
+                    
+                    // Add logout functionality
+                    document.getElementById('logoutBtnMain').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // NEW: Show logout confirmation instead of directly logging out
+                        showNotification(logoutConfirmation);
+                    });
+                }
+            } else {
+                resetDropdownToDefault();
+            }
+            
+            // NEW: Update menu notice visibility
+            updateMenuNotice();
+            
+            // Update cart count
+            updateCartCount();
+        }
+
+        // Add item to cart
+        function addToCart(itemId) {
+            if (!appState.isLoggedIn || (appState.currentUserType !== 'customer' && appState.currentUserType !== 'guest')) {
+                // UPDATED: Show login required notification
+                showNotification(loginNotification);
+                return;
+            }
+            
+            const item = appState.menuItems.find(i => i.id === itemId);
+            
+            if (item) {
+                const existingItem = appState.cart.find(i => i.id === itemId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    appState.cart.push({
+                        ...item,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                
+                // Animation effect
+                const button = document.querySelector(`.add-to-cart[data-id="${itemId}"]`);
+                button.textContent = 'Added!';
+                button.classList.add('bg-green-500');
+                button.classList.remove('bg-cyan-400', 'hover:bg-cyan-300');
+                
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-cyan-400', 'hover:bg-cyan-300');
+                }, 1500);
+            }
+        }
+
+        // Update cart count display
+        function updateCartCount() {
+            const cartCount = appState.cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = cartCount;
+        }
+
+        // Open cart modal
+        function openCart() {
+            if (!appState.isLoggedIn || (appState.currentUserType !== 'customer' && appState.currentUserType !== 'guest')) {
+                // UPDATED: Show login required notification
+                showNotification(loginNotification);
+                return;
+            }
+            
+            if (appState.cart.length === 0) {
+                // UPDATED: Show cart empty notification
+                showNotification(cartEmptyNotification);
+                return;
+            }
+            
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (appState.cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center py-4">Your cart is empty.</p>';
+                cartTotalElement.textContent = '0.00';
+            } else {
+                let total = 0;
+                
+                appState.cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-cover bg-center rounded" style="background-image: url('${item.image}');"></div>
+                            <div>
+                                <h4 class="font-bold text-cyan-300">${item.name}</h4>
+                                <p class="text-sm text-gray-400">₱${item.price}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <span class="quantity w-8 text-center">${item.quantity}</span>
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            </div>
+                            <p class="font-bold w-20 text-right">₱${itemTotal}</p>
+                            <button class="remove-item text-red-500" data-id="${item.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                cartTotalElement.textContent = total.toFixed(2);
+                
+                // Set up quantity controls
+                document.querySelectorAll('.quantity-btn.increase').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = parseInt(this.getAttribute('data-id'));
+                        const item = appState.cart.find(i => i.id === itemId);
+                        if (item) {
+                            item.quantity += 1;
+                            openCart(); // Refresh cart
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.decrease').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = parseInt(this.getAttribute('data-id'));
+                        const item = appState.cart.find(i => i.id === itemId);
+                        if (item && item.quantity > 1) {
+                            item.quantity -= 1;
+                            openCart(); // Refresh cart
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const itemId = parseInt(this.getAttribute('data-id'));
+                        appState.cart = appState.cart.filter(i => i.id !== itemId);
+                        openCart(); // Refresh cart
+                        updateCartCount();
+                    });
+                });
+            }
+            
+            cartModal.style.display = 'block';
+        }
+
+        // Open checkout modal
+        function openCheckout() {
+            if (appState.cart.length === 0) {
+                showInfoNotification('Cart Empty', 'Your cart is empty.', 'warning');
+                return;
+            }
+            
+            // NEW: Check if user is a guest
+            if (appState.currentUser && appState.currentUser.type === 'guest') {
+                showNotification(guestRestrictionNotification);
+                return;
+            }
+            
+            const checkoutTotalElement = document.getElementById('checkoutTotal');
+            const total = appState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            checkoutTotalElement.textContent = total.toFixed(2);
+            
+            // Pre-fill user info if available
+            if (appState.currentUser) {
+                document.getElementById('checkoutName').value = appState.currentUser.name;
+            }
+            
+            cartModal.style.display = 'none';
+            checkoutModal.style.display = 'block';
+        }
+
+        // Handle checkout
+        function handleCheckout(e) {
+            e.preventDefault();
+            
+            // NEW: Check if user is a guest
+            if (appState.currentUser && appState.currentUser.type === 'guest') {
+                showNotification(guestRestrictionNotification);
+                return;
+            }
+            
+            const name = document.getElementById('checkoutName').value;
+            const address = document.getElementById('checkoutAddress').value;
+            const phone = document.getElementById('checkoutPhone').value;
+            const payment = document.getElementById('checkoutPayment').value;
+            
+            // Create order
+            const order = {
+                id: generateOrderId(),
+                customer: {
+                    name,
+                    address,
+                    phone,
+                    email: appState.currentUser ? appState.currentUser.email : ''
+                },
+                items: [...appState.cart],
+                total: appState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                status: 'pending',
+                paymentMethod: payment,
+                date: new Date().toISOString()
+            };
+            
+            // Add to orders
+            appState.orders.push(order);
+            
+            // Clear cart
+            appState.cart = [];
+            updateCartCount();
+            
+            // Show confirmation
+            document.getElementById('orderId').textContent = `#${order.id}`;
+            checkoutModal.style.display = 'none';
+            orderConfirmationModal.style.display = 'block';
+        }
+
+        // Handle review submission
+        function handleReview(e) {
+            e.preventDefault();
+            
+            // NEW: Check if user is a guest
+            if (appState.currentUser && appState.currentUser.type === 'guest') {
+                showNotification(guestRestrictionNotification);
+                return;
+            }
+            
+            const name = document.getElementById('reviewName').value;
+            const rating = document.getElementById('selectedRating').value;
+            const text = document.getElementById('reviewText').value;
+            
+            if (rating === "0") {
+                showInfoNotification('Review Error', 'Please select a rating.', 'warning');
+                return;
+            }
+            
+            // In a real application, you would save this to a database
+            // For now, we'll just show a success message
+            // UPDATED: Show success notification
+            showNotification(reviewSuccessNotification);
+            
+            // Reset form
+            document.getElementById('reviewForm').reset();
+            document.querySelectorAll('#reviewRating i').forEach(star => {
+                star.classList.remove('fas');
+                star.classList.add('far');
+            });
+            document.getElementById('selectedRating').value = "0";
+            
+            // Close modal
+            reviewModal.style.display = 'none';
+        }
+
+        // Generate unique order ID
+        function generateOrderId() {
+            return Math.floor(10000 + Math.random() * 90000);
+        }
+
+        // Close order confirmation
+        function closeOrderConfirmation() {
+            orderConfirmationModal.style.display = 'none';
+        }
+
+        // Close all modals
+        function closeAllModals() {
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'none';
+            cartModal.style.display = 'none';
+            checkoutModal.style.display = 'none';
+            orderConfirmationModal.style.display = 'none';
+            reviewModal.style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) loginModal.style.display = 'none';
+            if (e.target === registerModal) registerModal.style.display = 'none';
+            if (e.target === cartModal) cartModal.style.display = 'none';
+            if (e.target === checkoutModal) checkoutModal.style.display = 'none';
+            if (e.target === orderConfirmationModal) orderConfirmationModal.style.display = 'none';
+            if (e.target === reviewModal) reviewModal.style.display = 'none';
+            
+            // Close notifications when clicking outside
+            if (e.target.classList.contains('notification-container')) {
+                hideAllNotifications();
+            }
+        });
+    </script>
+</body>
+</html>

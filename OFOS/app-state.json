@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@seafoodph.com",
+      "password": "admin123",
+      "type": "admin",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Staff User",
+      "email": "staff@seafoodph.com",
+      "password": "staff123",
+      "type": "staff",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Customer User",
+      "email": "customer@seafoodph.com",
+      "password": "customer123",
+      "type": "customer",
+      "status": "active"
+    }
+  ],
+  "currentUser": null,
+  "isLoggedIn": false,
+  "cart": [],
+  "orders": []
+}

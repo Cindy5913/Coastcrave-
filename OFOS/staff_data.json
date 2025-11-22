@@ -1,0 +1,11 @@
+[
+  {
+    "id": 2,
+    "name": "Staff User",
+    "email": "staff@seafoodph.com",
+    "password": "staff123",
+    "type": "staff",
+    "status": "active",
+    "registrationDate": "2023-01-02T00:00:00.000Z"
+  }
+]
